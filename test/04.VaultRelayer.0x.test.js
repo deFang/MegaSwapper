@@ -111,6 +111,7 @@ describe('MegaSwapper', function () {
         megaswapper = await (await ethers.getContractFactory('MegaSwapper')).deploy()
         vaultrelayer = await (await ethers.getContractFactory('VaultRelayer')).deploy(megaswapper.address)
         await megaswapper.setVault(vaultrelayer.address)
+        await megaswapper.setAuthorized(alice.address)
 
         await usdc.connect(signer).approve(vaultrelayer.address, MAX)
         console.log('before btc balance', (await wbtc.balanceOf(signer.address))/1e8)

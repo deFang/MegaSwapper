@@ -130,6 +130,7 @@ describe('MegaSwapper', function () {
     it('swap', async function () {
         megaswapper = await ethers.getContractAt('MegaSwapper', "0x15Ed8014B31adecA405592eb19a8b9db9b5cef47")
         vaultrelayer = await ethers.getContractAt('VaultRelayer', "0xd7d5a9885cd86d0Eff68a09bC2FB20f1Af0d59Ca")
+        await megaswapper.setAuthorized(bob.address)
         // megaswapper = await (await ethers.getContractFactory('MegaSwapper')).deploy()
         // vaultrelayer = await (await ethers.getContractFactory('VaultRelayer')).deploy(megaswapper.address)
         // await megaswapper.setVault(vaultrelayer.address)
